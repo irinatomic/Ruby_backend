@@ -10,6 +10,9 @@
 /test/version_tmp/
 /tmp/
 
+# Ignore .DS_Store
+.DS_Store
+
 # Used by dotenv library to load environment variables.
 # .env
 
