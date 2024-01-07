@@ -7,19 +7,25 @@ seedDataUsers = [
     username: 'admin',
     password:'admin',
     admin: true,
-    email: 'admin@example.com'
+    email: 'admin@example.com',
+    created_at: Time.current,
+    updated_at: Time.current
   },
   {
     username: 'username_one',
     password: 'password',
     admin: false,
     email: 'username_one@example.com',
+    created_at: Time.current,
+    updated_at: Time.current
   },
   {
     username: 'username_two',
     password: 'password',
     admin: false,
     email: 'username_two@example.com',
+    created_at: Time.current,
+    updated_at: Time.current
   },
 ]
 
@@ -28,10 +34,14 @@ User.create(seedDataUsers)
 # CATEGORIES
 seedDataCategories = [
   {
-    name: 'Buket'
+    name: 'Buket',
+    created_at: Time.current,
+    updated_at: Time.current
   },
   {
-    name: 'Aranžman'
+    name: 'Aranžman',
+    created_at: Time.current,
+    updated_at: Time.current
   }
 ]
 
@@ -39,17 +49,61 @@ Category.create(seedDataCategories)
 
 # FLOWERS
 seedDataFlowers = [
-  { name: 'Crvene ruže' }, 
-  { name: 'Roze ruže' }, 
-  { name: 'Žute ruže' },
-  { name: 'Orhideje' }, 
-  { name: 'Karanfili' }, 
-  { name: 'Ljiljani' },
-  { name: 'Astromerija' }, 
-  { name: 'Narcisi' }, 
-  { name: 'Lale' },
-  { name: 'Frezije' }, 
-  { name: 'Zumbuli' }
+  { 
+    name: 'Crvene ruže',
+    created_at: Time.current,
+    updated_at: Time.current
+    }, 
+  { 
+    name: 'Roze ruže',
+    created_at: Time.current,
+    updated_at: Time.current
+    }, 
+  { 
+    name: 'Žute ruže',
+    created_at: Time.current,
+    updated_at: Time.current
+    },
+  { 
+    name: 'Orhideje',
+    created_at: Time.current,
+    updated_at: Time.current
+    }, 
+  { 
+    name: 'Karanfili',
+    created_at: Time.current,
+    updated_at: Time.current
+    }, 
+  { 
+    name: 'Ljiljani',
+    created_at: Time.current,
+    updated_at: Time.current
+    },
+  { 
+    name: 'Astromerija',
+    created_at: Time.current,
+    updated_at: Time.current
+    }, 
+  { 
+    name: 'Narcisi',
+    created_at: Time.current,
+    updated_at: Time.current
+    }, 
+  { 
+    name: 'Lale',
+    created_at: Time.current,
+    updated_at: Time.current
+    },
+  { 
+    name: 'Frezije',
+    created_at: Time.current,
+    updated_at: Time.current
+    }, 
+  { 
+    name: 'Zumbuli',
+    created_at: Time.current,
+    updated_at: Time.current
+    }
 ]
 
 Flower.create(seedDataFlowers)
@@ -60,19 +114,25 @@ seedDataProducts = [
     name: 'Midnight boquet',
     description: 'Midnight buket stvara tramnu i misterioznu atmosferu - 10 astromerija',
     price: 1200,
-    category_id: 1
+    category_id: 1,
+    created_at: Time.current,
+    updated_at: Time.current
   },
   {
     name: 'I love you',
     description: 'Savršen poklon za voljenu osobu (12 crvenih ruža)',
     price: 1440,
-    category_id: 1
+    category_id: 1,
+    created_at: Time.current,
+    updated_at: Time.current
   },
   {
     name: 'Warm summer day',
     description: 'Kada želite da osunčate Vaš dom (6 karanfila, 2 astromerije i 2 ljiljana).',
     price: 1800,
-    category_id: 1
+    category_id: 1,
+    created_at: Time.current,
+    updated_at: Time.current
   }
 ]
 
@@ -87,7 +147,9 @@ seedDataOrders = [
     phone: '0641234567',
     email: 'ime_prezime@example.com',
     full_name: 'ime_prezime',
-    user_id: 2
+    user_id: 2,
+    created_at: Time.current,
+    updated_at: Time.current
   },
   {
     scheduled_time: '2023-10-06 12:00:00',
@@ -96,7 +158,9 @@ seedDataOrders = [
     phone: '0641234567',
     email: 'ime_prezime@example.com',
     full_name: 'ime_prezime',
-    user_id: 2
+    user_id: 2,
+    created_at: Time.current,
+    updated_at: Time.current
   },
   {
     scheduled_time: '2023-10-06 14:00:00',
@@ -105,7 +169,9 @@ seedDataOrders = [
     phone: '0641234567',
     email: 'ime_prezime@example.com',
     full_name: 'ime_prezime',
-    user_id: 3
+    user_id: 3,
+    created_at: Time.current,
+    updated_at: Time.current
   }
 ]
 
@@ -117,25 +183,33 @@ seedDataOrderItems = [
     product_id: 2,
     order_id: 1,
     quantity: 1,
-    unit_price: 1440
+    unit_price: 1440,
+    created_at: Time.current,
+    updated_at: Time.current
   },
   {
     product_id: 3,
     order_id: 1,
     quantity: 1,
-    unit_price: 1800
+    unit_price: 1800,
+    created_at: Time.current,
+    updated_at: Time.current
   },
   {
     product_id: 1,
     order_id: 2,
     quantity: 1,
-    unit_price: 1200
+    unit_price: 1200,
+    created_at: Time.current,
+    updated_at: Time.current
   },
   {
     product_id: 2,
     order_id: 3,
     quantity: 1,
-    unit_price: 1440
+    unit_price: 1440,
+    created_at: Time.current,
+    updated_at: Time.current
   }
 ]
 
@@ -146,27 +220,37 @@ seedDataFlowerInProducts = [
   {
     flower_id: 7,
     product_id: 1,
-    quantity: 10
+    quantity: 10,
+    created_at: Time.current,
+    updated_at: Time.current
   },
   {
     flower_id: 1,
     product_id: 2,
-    quantity: 12
+    quantity: 12,
+    created_at: Time.current,
+    updated_at: Time.current
   },
   {
     flower_id: 5,
     product_id: 3,
-    quantity: 6
+    quantity: 6,
+    created_at: Time.current,
+    updated_at: Time.current
   },
   {
     flower_id: 7,
     product_id: 3,
-    quantity: 2
+    quantity: 2,
+    created_at: Time.current,
+    updated_at: Time.current
   },
   {
     flower_id: 6,
     product_id: 3,
-    quantity: 2
+    quantity: 2,
+    created_at: Time.current,
+    updated_at: Time.current
   },
 ]
 

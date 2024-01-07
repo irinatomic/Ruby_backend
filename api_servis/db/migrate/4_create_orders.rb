@@ -2,8 +2,7 @@
 
 class CreateOrders < ActiveRecord::Migration[6.1]
   def change
-    create_table :Orders, { id: false, primary_key: :id } do |t|
-      t.primary_key :id
+    create_table :Orders do |t|
       t.datetime :scheduled_time, null: false
       t.string :order_status, null: false
       t.string :address, null: false

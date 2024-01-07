@@ -2,8 +2,7 @@
 
 class CreateCategories < ActiveRecord::Migration[6.1]
   def change
-    create_table :categories, { id: false } do |t|
-      t.primary_key :id
+    create_table :categories do |t|
       t.string :name, null: false, limit: 75
 
       t.timestamps null: false

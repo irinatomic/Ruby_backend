@@ -2,7 +2,7 @@
 
 class CreateOrderItems < ActiveRecord::Migration[6.1]
   def change
-    create_table :OrderItems, { id: false, primary_key: [:order_id, :product_id] } do |t|
+    create_table :OrderItems do |t|
       t.integer :order_id
       t.integer :product_id
       t.integer :quantity, null: false

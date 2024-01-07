@@ -2,8 +2,7 @@
 
 class CreateProducts < ActiveRecord::Migration[6.1]
   def change
-    create_table :Products, { id: false, primary_key: :id } do |t|
-      t.primary_key :id
+    create_table :Products do |t|
       t.string :name, null: false, limit: 75
       t.string :description, null: false, limit: 255
       t.integer :price, null: false
