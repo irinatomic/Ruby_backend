@@ -14,3 +14,10 @@ rails db:create
 rails db:migrate
 rails db:seed
 ```
+
+If you wish to reroll a migration:
+```
+rails db:rollback            # one migration
+rails db:rollback STEP=n     # n migrations
+rails db:drop                # drop all tables
+```
