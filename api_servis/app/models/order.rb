@@ -1,6 +1,9 @@
 # app/models/order.rb
 
 class Order < ApplicationRecord
+    self.table_name = 'Orders'
+    self.record_timestamps = false
+
     has_many :order_items, foreign_key: 'order_id', dependent: :destroy
     belongs_to :user, foreign_key: 'user_id'
   
