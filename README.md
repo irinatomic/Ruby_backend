@@ -21,3 +21,18 @@ rails db:rollback            # one migration
 rails db:rollback STEP=n     # n migrations
 rails db:drop                # drop all tables
 ```
+
+If you wish to see the database, from api_servis run:
+```
+sqlite3
+
+# Then, in the SQLite shell:
+.open cvecara.sqlite
+.tables                         # lists tables
+.schema                         # db schema
+.exit                           # exit
+
+# Run SQL commands as usual:
+SELECT * FROM Categories;
+SELECT * FROM Users;
+```

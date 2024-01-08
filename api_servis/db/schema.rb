@@ -11,6 +11,13 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.1].define(version: 6) do
+  create_table "Categories", force: :cascade do |t|
+    t.string "name", limit: 75, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_categories_on_name", unique: true
+  end
+
   create_table "FlowerInProducts", force: :cascade do |t|
     t.integer "product_id"
     t.integer "flower_id"
@@ -58,14 +65,7 @@ ActiveRecord::Schema[7.1].define(version: 6) do
     t.index ["name"], name: "index_Products_on_name", unique: true
   end
 
-  create_table "categories", force: :cascade do |t|
-    t.string "name", limit: 75, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_categories_on_name", unique: true
-  end
-
-  create_table "users", force: :cascade do |t|
+  create_table "Users", force: :cascade do |t|
     t.string "username", null: false
     t.string "password", null: false
     t.boolean "admin", null: false

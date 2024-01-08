@@ -8,15 +8,15 @@ default: &default
 
 development:
   <<: *default
-  database: cvecara_ruby.sqlite3
+  database: cvecara.sqlite
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-test:
-  <<: *default
-  database: cvecara_ruby_test.sqlite3
+# test:
+#   <<: *default
+#   database: cvecara_ruby_test.sqlite3
 
-production:
-  <<: *default
-  database: cvecara_ruby_production.sqlite3
+# production:
+#   <<: *default
+#   database: cvecara_ruby_production.sqlite3
