@@ -2,7 +2,7 @@
 # password: BCrypt::Password.create('password')
 
 # USERS
-seedDataUsers = [
+seedDataKorisnici = [
   {
     username: 'admin',
     password:'admin',
@@ -29,229 +29,229 @@ seedDataUsers = [
   },
 ]
 
-User.create(seedDataUsers)
+Korisnik.create(seedDataKorisnici)
 
 # CATEGORIES
-seedDataCategories = [
+seedDataKategorije = [
   {
-    name: 'Buket',
+    naziv: 'Buket',
     created_at: Time.current,
     updated_at: Time.current
   },
   {
-    name: 'Aranžman',
+    naziv: 'Aranžman',
     created_at: Time.current,
     updated_at: Time.current
   }
 ]
 
-Category.create(seedDataCategories)
+Kategorija.create(seedDataKategorije)
 
 # FLOWERS
-seedDataFlowers = [
+seedDataCvetovi = [
   { 
-    name: 'Crvene ruže',
+    naziv: 'Crvene ruže',
     created_at: Time.current,
     updated_at: Time.current
     }, 
   { 
-    name: 'Roze ruže',
+    naziv: 'Roze ruže',
     created_at: Time.current,
     updated_at: Time.current
     }, 
   { 
-    name: 'Žute ruže',
+    naziv: 'Žute ruže',
     created_at: Time.current,
     updated_at: Time.current
     },
   { 
-    name: 'Orhideje',
+    naziv: 'Orhideje',
     created_at: Time.current,
     updated_at: Time.current
     }, 
   { 
-    name: 'Karanfili',
+    naziv: 'Karanfili',
     created_at: Time.current,
     updated_at: Time.current
     }, 
   { 
-    name: 'Ljiljani',
+    naziv: 'Ljiljani',
     created_at: Time.current,
     updated_at: Time.current
     },
   { 
-    name: 'Astromerija',
+    naziv: 'Astromerija',
     created_at: Time.current,
     updated_at: Time.current
     }, 
   { 
-    name: 'Narcisi',
+    naziv: 'Narcisi',
     created_at: Time.current,
     updated_at: Time.current
     }, 
   { 
-    name: 'Lale',
+    naziv: 'Lale',
     created_at: Time.current,
     updated_at: Time.current
     },
   { 
-    name: 'Frezije',
+    naziv: 'Frezije',
     created_at: Time.current,
     updated_at: Time.current
     }, 
   { 
-    name: 'Zumbuli',
+    naziv: 'Zumbuli',
     created_at: Time.current,
     updated_at: Time.current
     }
 ]
 
-Flower.create(seedDataFlowers)
+Cvet.create(seedDataCvetovi)
 
 # PRODUCTS
-seedDataProducts = [
+seedDataProizvodi = [
   {
-    name: 'Midnight boquet',
-    description: 'Midnight buket stvara tramnu i misterioznu atmosferu - 10 astromerija',
-    price: 1200,
-    category_id: 1,
+    naziv: 'Midnight boquet',
+    opis: 'Midnight buket stvara tramnu i misterioznu atmosferu - 10 astromerija',
+    cena: 1200,
+    kategorija_id: 1,
     created_at: Time.current,
     updated_at: Time.current
   },
   {
-    name: 'I love you',
-    description: 'Savršen poklon za voljenu osobu (12 crvenih ruža)',
-    price: 1440,
-    category_id: 1,
+    naziv: 'I love you',
+    opis: 'Savršen poklon za voljenu osobu (12 crvenih ruža)',
+    cena: 1440,
+    kategorija_id: 1,
     created_at: Time.current,
     updated_at: Time.current
   },
   {
-    name: 'Warm summer day',
-    description: 'Kada želite da osunčate Vaš dom (6 karanfila, 2 astromerije i 2 ljiljana).',
-    price: 1800,
-    category_id: 1,
+    naziv: 'Warm summer day',
+    opis: 'Kada želite da osunčate Vaš dom (6 karanfila, 2 astromerije i 2 ljiljana).',
+    cena: 1800,
+    kategorija_id: 1,
     created_at: Time.current,
     updated_at: Time.current
   }
 ]
 
-Product.create(seedDataProducts)
+Proizvod.create(seedDataProizvodi)
 
 # ORDERS
-seedDataOrders = [
+seedDataNarudzbine = [
   {
-    scheduled_time: '2023-10-05 18:30:00',
-    order_status: 'Nova',
-    address: 'Kralja Milana 12/2',
-    phone: '0641234567',
+    zakazano_vreme: '2023-10-05 18:30:00',
+    status_narudzbine: 'Nova',
+    adresa: 'Kralja Milana 12/2',
+    telefon: '0641234567',
     email: 'ime_prezime@example.com',
-    full_name: 'ime_prezime',
-    user_id: 2,
+    ime_prezime: 'ime_prezime',
+    korisnik_id: 2,
     created_at: Time.current,
     updated_at: Time.current
   },
   {
-    scheduled_time: '2023-10-06 12:00:00',
-    order_status: 'Prihvaćena',
-    address: 'Knez Mihailova 6/6',
-    phone: '0641234567',
+    zakazano_vreme: '2023-10-06 12:00:00',
+    status_narudzbine: 'Prihvaćena',
+    adresa: 'Knez Mihailova 6/6',
+    telefon: '0641234567',
     email: 'ime_prezime@example.com',
-    full_name: 'ime_prezime',
-    user_id: 2,
+    ime_prezime: 'ime_prezime',
+    korisnik_id: 2,
     created_at: Time.current,
     updated_at: Time.current
   },
   {
-    scheduled_time: '2023-10-06 14:00:00',
-    order_status: 'Prihvaćena',
-    address: 'Milutina Milankovića 17',
-    phone: '0641234567',
+    zakazano_vreme: '2023-10-06 14:00:00',
+    status_narudzbine: 'Prihvaćena',
+    adresa: 'Milutina Milankovića 17',
+    telefon: '0641234567',
     email: 'ime_prezime@example.com',
-    full_name: 'ime_prezime',
-    user_id: 3,
+    ime_prezime: 'ime_prezime',
+    korisnik_id: 3,
     created_at: Time.current,
     updated_at: Time.current
   }
 ]
 
-Order.create(seedDataOrders)
+Narudzbina.create(seedDataNarudzbine)
 
 # ORDER_ITEMS
-seedDataOrderItems = [
+seedDataStavkeNarudzbine = [
   {
-    product_id: 2,
-    order_id: 1,
-    quantity: 1,
-    unit_price: 1440,
+    proizvod_id: 2,
+    narudzbina_id: 1,
+    kolicina: 1,
+    jedinicna_cena: 1440,
     created_at: Time.current,
     updated_at: Time.current
   },
   {
-    product_id: 3,
-    order_id: 1,
-    quantity: 1,
-    unit_price: 1800,
+    proizvod_id: 3,
+    narudzbina_id: 1,
+    kolicina: 1,
+    jedinicna_cena: 1800,
     created_at: Time.current,
     updated_at: Time.current
   },
   {
-    product_id: 1,
-    order_id: 2,
-    quantity: 1,
-    unit_price: 1200,
+    proizvod_id: 1,
+    narudzbina_id: 2,
+    kolicina: 1,
+    jedinicna_cena: 1200,
     created_at: Time.current,
     updated_at: Time.current
   },
   {
-    product_id: 2,
-    order_id: 3,
-    quantity: 1,
-    unit_price: 1440,
+    proizvod_id: 2,
+    narudzbina_id: 3,
+    kolicina: 1,
+    jedinicna_cena: 1440,
     created_at: Time.current,
     updated_at: Time.current
   }
 ]
 
-OrderItem.create(seedDataOrderItems)
+StavkaNarudzbine.create(seedDataStavkeNarudzbine)
 
 # FLOWER_IN_PRODUCTS
-seedDataFlowerInProducts = [
+seedDataCvetoviUProizvodima = [
   {
-    flower_id: 7,
-    product_id: 1,
-    quantity: 10,
+    cvet_id: 7,
+    proizvod_id: 1,
+    kolicina: 10,
     created_at: Time.current,
     updated_at: Time.current
   },
   {
-    flower_id: 1,
-    product_id: 2,
-    quantity: 12,
+    cvet_id: 1,
+    proizvod_id: 2,
+    kolicina: 12,
     created_at: Time.current,
     updated_at: Time.current
   },
   {
-    flower_id: 5,
-    product_id: 3,
-    quantity: 6,
+    cvet_id: 5,
+    proizvod_id: 3,
+    kolicina: 6,
     created_at: Time.current,
     updated_at: Time.current
   },
   {
-    flower_id: 7,
-    product_id: 3,
-    quantity: 2,
+    cvet_id: 7,
+    proizvod_id: 3,
+    kolicina: 2,
     created_at: Time.current,
     updated_at: Time.current
   },
   {
-    flower_id: 6,
-    product_id: 3,
-    quantity: 2,
+    cvet_id: 6,
+    proizvod_id: 3,
+    kolicina: 2,
     created_at: Time.current,
     updated_at: Time.current
   },
 ]
 
-FlowerInProduct.create(seedDataFlowerInProducts)
+CvetUProizvodu.create(seedDataCvetoviUProizvodima)

@@ -2,6 +2,8 @@
 Rewritten express backend in a Ruby on rails framework.
 
 ## Running the app
+Creating a rails api app: `rails new app-name --api`. <br>
+
 First, install all the dependencies, from the api_servis run:
 ```
 bundle install
