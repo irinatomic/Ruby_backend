@@ -1,15 +1,37 @@
-# Ruby_backend
-Rewritten express backend in a Ruby on rails framework.
+# Ruby backend
+Rewritten backend in a Ruby on rails framework.
 
 ## Running the app
-Creating a rails api app: `rails new app-name --api`. <br>
-
 First, install all the dependencies, from the api_servis run:
 ```
 bundle install
+sudo bundle install           # for macs
 ```
 
-## Deploying the database
+## Database
+
+### Problem with macbook m1
+Installing the mysql2 on macbook m1 (with brew):
+```
+brew install mysql openssl zstd
+sudo gem install mysql2 -- --with-opt-dir=/opt/homebrew/opt/openssl@3 --with-mysql-dir=/opt/homebrew/opt/mysql
+
+# check if it is installed
+gem list mysql2
+```
+
+Start the mysql server, for macs you can do it with:
+```
+brew services start mysql
+
+# check if it is running
+brew services list
+```
+
+The problem is that the started mysql serves just unexpectedly shuts down or  it cannot be found on the port it says it is listening on. I do not know the solution to this so I am opting to use the sqlite in-app db instead.
+
+### Deployment 
+
 Run the following commands from the api_servis: <br>
 ```
 rails db:create
