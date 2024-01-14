@@ -10,7 +10,6 @@ class CreateStavkeNarudzbine < ActiveRecord::Migration[6.1]
       t.integer :proizvod_id, null: false
       t.integer :narudzbina_id, null: false
 
-      t.timestamps null: false
     end
     # add the foreign key constraint
     add_foreign_key :StavkaNarudzbine, :Proizvod, column: :proizvod_id

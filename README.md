@@ -8,6 +8,8 @@ bundle install
 sudo bundle install           # for macs
 ```
 
+To start the app, run `rails server`
+
 ## Database
 
 ### Problem with macbook m1
@@ -60,3 +62,6 @@ sqlite3
 SELECT * FROM Categories;
 SELECT * FROM Users;
 ```
+
+## Testing
+To run the tests, run `rails test`

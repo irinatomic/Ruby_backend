@@ -9,7 +9,6 @@ class CreateCvetUProizvodima < ActiveRecord::Migration[6.1]
       t.integer :proizvod_id
       t.integer :cvet_id
       
-      t.timestamps null: false
     end
       # add the foreign key constraint
       add_foreign_key :CvetUProizvodu, :Cvet, column: :cvet_id

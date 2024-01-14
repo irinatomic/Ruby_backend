@@ -8,7 +8,6 @@ class CreateKorisnici < ActiveRecord::Migration[6.1]
       t.boolean :admin, default: false, null: false
       t.string :email, null: false
 
-      t.timestamps null: false
     end
   end
 end

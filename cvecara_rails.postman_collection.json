@@ -1,0 +1,152 @@
+{
+	"info": {
+		"_postman_id": "b58f99bb-0cc6-44bf-812e-f3801027f652",
+		"name": "cvecara_rails",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "24433393"
+	},
+	"item": [
+		{
+			"name": "cvet",
+			"item": [
+				{
+					"name": "GET all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/cvet"
+					},
+					"response": []
+				},
+				{
+					"name": "GET by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/cvet/1"
+					},
+					"response": []
+				},
+				{
+					"name": "POST new",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"naziv\": \"Test\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/cvet"
+					},
+					"response": []
+				},
+				{
+					"name": "PUT change",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"naziv\": \"Test_izmena\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/cvet/12"
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE newest",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:3000/cvet/12"
+					},
+					"response": []
+				}
+			],
+			"description": "## API Endpoints for Cvet Table\n\nListed are the API endpoints used to interact with the Cvet table in the database.\n\n| Method | Address |\n| --- | --- |\n| GET all | [http://localhost:3000/cvet](http://localhost:3000/cvet) |\n| GET by id | [http://localhost:3000/cvet/:id](http://localhost:3000/cvet/:id) |\n| POST | [http://localhost:3000/cvet](http://localhost:3000/cvet) |\n| PUT | [http://localhost:3000/cvet/:id](http://localhost:3000/cvet/:id) |\n| DELETE | [http://localhost:3000/cvet/:id](http://localhost:3000/cvet/:id) |\n\n### GET all\n\n| Info | Retrieves all data from the API. |\n| --- | --- |\n| Returns | list: A list of all the data retrieved from the API. |\n| Raises | APIError: If there is an error while making the API call. |\n| Auth | None |\n\n### GET by id\n\n| Info | Retrieves data from the API based on the provided id. |\n| --- | --- |\n| Returns | object: The data retrieved from the API in JSON format. |\n| Raises | APIError: If there is an error while making the API call. |\n| Auth | None |\n\nReturns:\n\n```\n{\n  \"id\": 1,\n  \"naziv\": \"Crvene ruže\"\n}\n\n ```\n\n### POST\n\n| Info | Creates a new cvet object |\n| --- | --- |\n| Returns | object: The created object in JSON format. |\n| Raises | APIError: If there is an error while making the API call. |\n| Auth | Admin |\n\nRequest body:\n\n```\n{\n  \"naziv\": \"Test\"\n}\n\n ```\n\nResponse:\n\n```\n{\n  \"id\": 12,\n  \"naziv\": \"Test\"\n}\n\n ```\n\n### PUT\n\n| Info | Modifies an existing cvet object whose id is in the params |\n| --- | --- |\n| Returns | object: The modified object in JSON format. |\n| Raises | APIError: If there is an error while making the API call. |\n| Auth | Admin |\n\nRequest body:\n\n```\n{\n  \"naziv\": \"Test_izmena\"\n}\n\n ```\n\nResponse:\n\n```\n{\n  \"id\": 12,\n  \"naziv\": \"Test_izmena\"\n}\n\n ```\n\n### DELETE\n\n| Info | Deletes cvet object with the id given in request parameters. |\n| --- | --- |\n| Returns | object: The id of the deleted cvet object. |\n| Raises | APIError: If there is an error while making the API call. |\n| Auth | Admin |"
+		},
+		{
+			"name": "kategorija",
+			"item": [
+				{
+					"name": "GET all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/kategorija"
+					},
+					"response": []
+				},
+				{
+					"name": "GET by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/kategorija/1"
+					},
+					"response": []
+				},
+				{
+					"name": "POST new",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"naziv\": \"Test\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/kategorija"
+					},
+					"response": []
+				},
+				{
+					"name": "PUT change",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"naziv\": \"Test_izmena\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/kategorija/3"
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE newest",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:3000/kategorija/3"
+					},
+					"response": []
+				}
+			],
+			"description": "## API Endpoints for Kategorija Table\n\nListed are the API endpoints used to interact with the Kategorija table in the database.\n\n| Method | Address |\n| --- | --- |\n| GET all | [http://localhost:3000/kategorija](http://localhost:3000/kategorija) |\n| GET by id | [http://localhost:3000/kategorija/:id](http://localhost:3000/kategorija/:id) |\n| POST | [http://localhost:3000/kategorija](http://localhost:3000/kategorija) |\n| PUT | [http://localhost:3000/kategorija/:id](http://localhost:3000/kategorija/:id) |\n| DELETE | [http://localhost:3000/kategorija/:id](http://localhost:3000/kategorija/:id) |\n\n### GET all\n\n| Info | Retrieves all data from the API. |\n| --- | --- |\n| Returns | list: A list of all the data retrieved from the API. |\n| Raises | APIError: If there is an error while making the API call. |\n| Auth | None |\n\n### GET by id\n\n| Info | Retrieves data from the API based on the provided id. |\n| --- | --- |\n| Returns | object: The data retrieved from the API in JSON format. |\n| Raises | APIError: If there is an error while making the API call. |\n| Auth | None |\n\nReturns:\n\n```\n{\n  \"id\": 1,\n  \"naziv\": \"Buket\"\n}\n\n ```\n\n### POST\n\n| Info | Creates a new kategorija object |\n| --- | --- |\n| Returns | object: The created object in JSON format. |\n| Raises | APIError: If there is an error while making the API call. |\n| Auth | Admin |\n\nRequest body:\n\n```\n{\n  \"naziv\": \"Test\"\n}\n\n ```\n\nReponse:\n\n```\n{\n  \"id\": 3,\n  \"naziv\": \"Test\"\n}\n\n ```\n\n### PUT\n\n| Info | Modifies an existing kategorija object whose id is in the params |\n| --- | --- |\n| Returns | object: The modified object in JSON format. |\n| Raises | APIError: If there is an error while making the API call. |\n| Auth | Admin |\n\nRequest body:\n\n```\n{\n  \"naziv\": \"Test_izmena\"\n}\n\n ```\n\nResponse:\n\n```\n{\n  \"id\": 3,\n  \"naziv\": \"Test_izmena\"\n}\n\n ```\n\n### DELETE\n\n| Info | Deletes kategorija object with the id given in request parameters. |\n| --- | --- |\n| Returns | object: The id of the deleted kategorija object. |\n| Raises | APIError: If there is an error while making the API call. |\n| Auth | Admin |"
+		},
+		{
+			"name": "proizvod",
+			"item": []
+		}
+	]
+}

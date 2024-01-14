@@ -13,7 +13,6 @@ class CreateNarudzbine < ActiveRecord::Migration[6.1]
       # foreign keys
       t.integer :korisnik_id, null: false
 
-      t.timestamps null: false
     end
     # add the foreign key constraint
     add_foreign_key :Narudzbina, :Korisnik, column: :korisnik_id

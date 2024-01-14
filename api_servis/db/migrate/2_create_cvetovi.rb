@@ -5,7 +5,6 @@ class CreateCvetovi < ActiveRecord::Migration[6.1]
     create_table :Cvet do |t|
       t.string :naziv, null: false
 
-      t.timestamps null: false
     end
   end
 end

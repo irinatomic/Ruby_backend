@@ -13,6 +13,11 @@
 # Ignore .DS_Store
 .DS_Store
 
+# Ignore test db
+cvecara_test.sqlite
+cvecara_test.sqlite-shm 
+cvecara_test.sqlite-wal
+
 # Used by dotenv library to load environment variables.
 # .env
 

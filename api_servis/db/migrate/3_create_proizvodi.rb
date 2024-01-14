@@ -10,7 +10,6 @@ class CreateProizvodi < ActiveRecord::Migration[6.1]
       # foreign keys
       t.integer :kategorija_id, null: false
 
-      t.timestamps null: false
     end
     # add the foreign key constraint
     add_foreign_key :Proizvod, :Kategorija, column: :kategorija_id

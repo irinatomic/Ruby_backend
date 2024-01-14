@@ -13,22 +13,16 @@
 ActiveRecord::Schema[7.1].define(version: 6) do
   create_table "Cvet", force: :cascade do |t|
     t.string "naziv", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "CvetUProizvodu", force: :cascade do |t|
     t.integer "kolicina", null: false
     t.integer "proizvod_id"
     t.integer "cvet_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "Kategorija", force: :cascade do |t|
     t.string "naziv", limit: 75, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "Korisnik", force: :cascade do |t|
@@ -36,8 +30,6 @@ ActiveRecord::Schema[7.1].define(version: 6) do
     t.string "password", null: false
     t.boolean "admin", default: false, null: false
     t.string "email", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "Narudzbina", force: :cascade do |t|
@@ -48,8 +40,6 @@ ActiveRecord::Schema[7.1].define(version: 6) do
     t.string "email", null: false
     t.string "ime_prezime", null: false
     t.integer "korisnik_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "Proizvod", force: :cascade do |t|
@@ -57,8 +47,6 @@ ActiveRecord::Schema[7.1].define(version: 6) do
     t.string "opis", limit: 255, null: false
     t.integer "cena", null: false
     t.integer "kategorija_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "StavkaNarudzbine", force: :cascade do |t|
@@ -66,8 +54,6 @@ ActiveRecord::Schema[7.1].define(version: 6) do
     t.integer "jedinicna_cena", null: false
     t.integer "proizvod_id", null: false
     t.integer "narudzbina_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "CvetUProizvodu", "Cvet", column: "cvet_id"

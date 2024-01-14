@@ -9,6 +9,10 @@ development:
   <<: *default
   database: cvecara.sqlite
 
+test:
+  <<: *default
+  database: cvecara_test.sqlite
+
 # problem with mac
 # default: &default
 #   adapter: mysql2
@@ -19,6 +23,3 @@ development:
 #   host: localhost
 #   socket: /tmp/mysql.sock                                  # mysql socket path gotten with 'mysql_config --socket'
 #   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-
-# development:
-#   <<: *default
