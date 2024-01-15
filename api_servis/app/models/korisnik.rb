@@ -4,7 +4,7 @@ class Korisnik < ApplicationRecord
     self.table_name = 'Korisnik'
     self.record_timestamps = false
 
-    has_many :narudzbine, foreign_key: 'korisnik_id', dependent: :destroy
+    has_many :narudzbine, class_name: 'Narudzbina', foreign_key: 'korisnik_id', dependent: :destroy
   
     validates :username, presence: true, uniqueness: true
     validates :password, presence: true

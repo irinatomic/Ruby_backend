@@ -9,17 +9,11 @@ Rails.application.routes.draw do
   resources :kategorija, only: [:index, :show, :create, :update, :destroy]
 
   # /proizvod -> proizvod_controller
-  resources :proizvod, only: [:index, :show, :create, :update, :destroy] do
-    member do
-      put 'promeni-cenu/:id', to: 'proizvod#promeni_cenu'
-    end
-  end
+  resources :proizvod, only: [:index, :show, :create, :update, :destroy]
+  put '/proizvod/promeni-cenu/:id', to: 'proizvod#promeni_cenu', as: :promeni_cenu
 
   # narudzbina -> narudzbina_controller
-  resources :narudzbina, only: [:index, :show, :create, :update, :destroy] do
-    member do
-      put 'promeni-status/:id', to: 'narudzbines#promeni_status'
-    end
-  end
+  resources :narudzbina, only: [:index, :show, :create, :update, :destroy]
+  put '/narudzbina/promeni-status/:id', to: 'narudzbina#promeni_status', as: :promeni_status
     
 end
