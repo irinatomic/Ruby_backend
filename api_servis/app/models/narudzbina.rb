@@ -4,7 +4,7 @@ class Narudzbina < ApplicationRecord
     self.table_name = 'Narudzbina'
     self.record_timestamps = false
 
-    has_many :stavke_narudzbine, class_name: 'Narudzbina', foreign_key: 'narudzbina_id', dependent: :destroy
+    has_many :stavke_narudzbine, class_name: 'StavkaNarudzbine', foreign_key: 'narudzbina_id', dependent: :destroy
     belongs_to :korisnik, foreign_key: 'korisnik_id'
   
     validates :zakazano_vreme, presence: true

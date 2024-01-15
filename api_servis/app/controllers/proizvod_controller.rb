@@ -136,10 +136,6 @@ class ProizvodController < ApplicationController
   # PUT /proizvod/promeni-cenu/:id
   def promeni_cenu
     begin
-      puts '\n'
-      puts params[:id]
-      puts params[:cena]
-      puts '\n'
       proizvod = Proizvod.find(params[:id])
       proizvod.update(cena: params[:cena])
       render json: proizvod

@@ -230,6 +230,92 @@
 				}
 			],
 			"description": "## API Endpoints for Proizvod Table\n\nListed are the API endpoints used to interact with the Proizvod table in the database.\n\n| Method | Address |\n| --- | --- |\n| GET all | [http://localhost:3000/proizvod](http://localhost:9000/proizvod) |\n| GET by id | [http://localhost:3000/proizvod/:id](http://localhost:9000/proizvod/:id) |\n| POST | [http://localhost:3000/proizvod](http://localhost:9000/proizvod) |\n| PUT | [http://localhost:3000/proizvod/:id](http://localhost:9000/proizvod/:id) |\n| PUT | [http://localhost:3000/proizvod/promeni-cenu/:id](http://localhost:9000/proizvod/promeni-cenu/:id) |\n| DELETE | [http://localhost:3000/proizvod/:id](http://localhost:9000/proizvod/:id) |\n\n### GET all\n\n| Info | Retrieves all data from the API. |\n| --- | --- |\n| Returns | list: A list of all the data retrieved from the API. |\n| Raises | APIError: If there is an error while making the API call. |\n| Auth | None |\n\n### GET by id\n\n| Info | Retrieves data from the API based on the provided id. |\n| --- | --- |\n| Returns | object: The data retrieved from the API in JSON format. |\n| Raises | APIError: If there is an error while making the API call. |\n| Auth | None |\n\nReturns:\n\n```\n{\n  \"id\": 1,\n  \"naziv\": \"Midnight boquet\",\n  \"opis\": \"Midnight buket stvara tramnu i misterioznu atmosferu - 10 astromerija\",\n  \"cena\": 1200,\n  \"kategorija_id\": 1,\n  \"cvetovi\": [\n    {\n      \"id\": 1,\n      \"kolicina\": 10,\n      \"cvet_id\": 7,\n      \"proizvod_id\": 1,\n      \"Cvet\": {\n        \"id\": 7,\n        \"naziv\": \"Astromerija\"\n      }\n    }\n  ],\n  \"kategorija\": {\n    \"id\": 1,\n    \"naziv\": \"Buket\"\n  }\n}\n\n ```\n\n### POST\n\n| Info | Creates a new Proizvod object |\n| --- | --- |\n| Returns | object: The created object in JSON format. |\n| Raises | APIError: If there is an error while making the API call. |\n| Auth | Admin |\n\nRequest body:\n\n```\n{\n  \"naziv\": \"Testni\",\n  \"opis\": \"Opis test\",\n  \"kategorija\": \"1\",\n  \"cena\": \"500\",\n  \"sadrzaj\": {\n    \"1\": \"5\",\n    \"9\": \"4\",\n    \"11\": \"3\"\n  }\n}\n\n ```\n\nResponse:\n\n```\n[\n  {\n    \"id\": 4,\n    \"opis\": \"Opis test\",\n    \"cena\": \"500\",\n    \"kategorija_id\": \"1\",\n    \"naziv\": \"Testni\"\n  },\n  true\n]\n\n ```\n\n### PUT\n\n| Info | Modifies an existing Proizvod object whose id is in the params |\n| --- | --- |\n| Returns | object: The modified object in JSON format. |\n| Raises | APIError: If there is an error while making the API call. |\n| Auth | Admin |\n\nRequest body:\n\n```\n{\n  \"naziv\": \"Testni\",\n  \"opis\": \"Opis test - izmena\",\n  \"kategorija\": \"1\",\n  \"cena\": \"500\",\n  \"sadrzaj\": {\n    \"11\": \"3\"\n  }\n}\n\n ```\n\nResponse:\n\n```\n{\n  \"id\": 4,\n  \"naziv\": \"Testni\",\n  \"opis\": \"Opis test - izmena\",\n  \"cena\": \"500\",\n  \"kategorija_id\": \"1\"\n}\n\n ```\n\n### PUT promeni-cenu\n\n| Info | Modifies price of an existing Proizvod object whose id is in the params |\n| --- | --- |\n| Returns | object: The modified object in JSON format. |\n| Raises | APIError: If there is an error while making the API call. |\n| Auth | Admin |\n\nRequest body:\n\n```\n{\n    \"cena\": \"100\"\n}\n\n ```\n\n### DELETE\n\n| Info | Deletes Proizvod object with the id given in request parameters. |\n| --- | --- |\n| Returns | object: The id of the deleted proizvod object. |\n| Raises | APIError: If there is an error while making the API call. |\n| Auth | Admin |"
+		},
+		{
+			"name": "narudzbina",
+			"item": [
+				{
+					"name": "GET all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/narudzbina"
+					},
+					"response": []
+				},
+				{
+					"name": "GET by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/narudzbina/1"
+					},
+					"response": []
+				},
+				{
+					"name": "POST new",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"zakazano_vreme\": \"2023-10-05T18:30:00.000Z\",\n  \"adresa\": \"Kralja Milana 25/2\",\n  \"telefon\": \"0641234567\",\n  \"email\": \"ime_prezime@email.com\",\n  \"ime_prezime\": \"ime_prezime\",\n  \"korisnik_id\": \"2\",\n  \"sadrzaj\": {\n\t\t\t\"1\": \"2\",\n\t\t\t\"3\": \"1\"\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/narudzbina"
+					},
+					"response": []
+				},
+				{
+					"name": "PUT change",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"zakazano_vreme\": \"2023-10-05T18:30:00.000Z\",\n  \"adresa\": \"Kralja Milana 25/2\",\n  \"telefon\": \"0641234567\",\n  \"email\": \"ime_prezime_novo\",\n  \"ime_prezime\": \"ime_prezime\",\n  \"sadrzaj\": {\n\t\t\t\"1\": \"2\",\n\t\t\t\"2\": \"1\"\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"status_narudzbine\": \"Odbijeno\" \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/narudzbina/promeni-status/4"
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE newest",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:3000/narudzbina/4"
+					},
+					"response": []
+				}
+			],
+			"description": "## API Endpoints for Narudzbina Table\n\nListed are the API endpoints used to interact with the Narudzbina table in the database.\n\n| Method | Address |\n| --- | --- |\n| GET all | [http://localhost:3000/narudzbina](http://localhost:3000/narudzbina) |\n| GET by id | [http://localhost:3000/narudzbina/:id](http://localhost:3000/narudzbina/:id) |\n| POST | [http://localhost:3000/narudzbina](http://localhost:3000/narudzbina) |\n| PUT | [http://localhost:3000/narudzbina/:id](http://localhost:3000/narudzbina/:id) |\n| PUT | [http://localhost:3000/narudzbina/promeni-status/:id](http://localhost:3000/narudzbina/promeni-status/:id) |\n| DELETE | [http://localhost:3000/narudzbina/:id](http://localhost:3000/narudzbina/:id) |\n\n### GET all\n\n| Info | Retrieves all data from the API. |\n| --- | --- |\n| Returns | list: A list of all the data retrieved from the API. |\n| Raises | APIError: If there is an error while making the API call. |\n| Auth | Admin |\n\n### GET by id\n\n| Info | Retrieves data from the API based on the provided id. |\n| --- | --- |\n| Returns | object: The data retrieved from the API in JSON format. |\n| Raises | APIError: If there is an error while making the API call. |\n| Auth | Admin |\n\nReturns:\n\n```\n{\n  \"id\": 1,\n  \"zakazano_vreme\": \"2023-10-05T18:30:00.000Z\",\n  \"status_narudzbine\": \"Nova\",\n  \"adresa\": \"Kralja Milana 12/2\",\n  \"telefon\": \"0641234567\",\n  \"email\": \"ime_prezime\",\n  \"ime_prezime\": \"ime_prezime\",\n  \"stavke\": [\n    {\n      \"id\": 1,\n      \"kolicina\": 1,\n      \"jedinicna_cena\": 1440,\n      \"proizvod_id\": 2,\n      \"narudzbina_id\": 1,\n      \"Proizvod\": {\n        \"id\": 2,\n        \"naziv\": \"I love you\",\n        \"opis\": \"Savršen poklon za voljenu osobu (12 crvenih ruža)\",\n        \"cena\": 1440,\n        \"kategorija_id\": 1\n      }\n    },\n    {\n      \"id\": 2,\n      \"kolicina\": 1,\n      \"jedinicna_cena\": 1800,\n      \"proizvod_id\": 3,\n      \"narudzbina_id\": 1,\n      \"Proizvod\": {\n        \"id\": 3,\n        \"naziv\": \"Warm summer day\",\n        \"opis\": \"Kada želite da osunčate Vaš dom (6 karanfila, 2 astromerije i 2 ljiljana).\",\n        \"cena\": 1800,\n        \"kategorija_id\": 1\n      }\n    }\n  ]\n}\n\n ```\n\n### POST\n\n| Info | Creates a new Narudzbina object |\n| --- | --- |\n| Returns | object: The created object in JSON format. |\n| Raises | APIError: If there is an error while making the API call. |\n| Auth | User |\n\nRequest body:\n\n```\n{\n  \"zakazano_vreme\": \"2023-10-05T18:30:00.000Z\",\n  \"adresa\": \"Kralja Milana 25/2\",\n  \"telefon\": \"0641234567\",\n  \"email\": \"ime_prezime\",\n  \"ime_prezime\": \"ime_prezime\",\n  \"korisnik_id\": \"2\",\n  \"sadrzaj\": {\n            \"1\": \"2\",\n            \"3\": \"1\"\n    }\n}\n\n ```\n\nResponse:\n\n```\n{\n  \"id\": 5,\n  \"zakazano_vreme\": \"2023-10-05T18:30:00.000Z\",\n  \"status_narudzbine\": \"Nova\",\n  \"adresa\": \"Kralja Milana 25/2\",\n  \"telefon\": \"0641234567\",\n  \"email\": \"ime_prezime\",\n  \"ime_prezime\": \"ime_prezime\"\n}\n\n ```\n\n### PUT\n\n| Info | Modifies an existing Narudzbina object whose id is in the params |\n| --- | --- |\n| Returns | object: The modified object in JSON format. |\n| Raises | APIError: If there is an error while making the API call. |\n| Auth | User |\n\nRequest body:\n\n```\n{\n  \"zakazano_vreme\": \"2023-10-05T18:30:00.000Z\",\n  \"adresa\": \"Kralja Milana 25/2\",\n  \"telefon\": \"0641234567\",\n  \"email\": \"ime_prezime_novo\",\n  \"ime_prezime\": \"ime_prezime\",\n  \"sadrzaj\": {\n            \"1\": \"2\",\n            \"2\": \"1\"\n    }\n}\n\n ```\n\nResponse:\n\n```\n{\n  \"id\": 5,\n  \"zakazano_vreme\": \"2023-10-05T18:30:00.000Z\",\n  \"status_narudzbine\": \"Nova\",\n  \"adresa\": \"Kralja Milana 25/2\",\n  \"telefon\": \"0641234567\",\n  \"email\": \"ime_prezime_novo\",\n  \"ime_prezime\": \"ime_prezime\"\n}\n\n ```\n\n### PUT promeni-status\n\n| Info | Modifies status of an existing Narudzbina object whose id is in the params |\n| --- | --- |\n| Returns | object: The modified object in JSON format. |\n| Raises | APIError: If there is an error while making the API call. |\n| Auth | Admin |\n\nRequest body:\n\n```\n{\n  \"status_narudzbine\": \"Odbijeno\" \n}\n\n ```\n\nResponse:\n\n```\n{\n  \"id\": 1,\n  \"zakazano_vreme\": \"2023-10-05T18:30:00.000Z\",\n  \"status_narudzbine\": \"Odbijeno\",\n  \"adresa\": \"Kralja Milana 12/2\",\n  \"telefon\": \"0641234567\",\n  \"email\": \"ime_prezime\",\n  \"ime_prezime\": \"ime_prezime\"\n}\n\n ```\n\n### DELETE\n\n| Info | Deletes Proizvod object with the id given in request parameters. |\n| --- | --- |\n| Returns | object: The id of the deleted Narudzbina object. |\n| Raises | APIError: If there is an error while making the API call. |\n| Auth | Admin |"
 		}
 	]
 }
