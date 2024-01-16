@@ -44,24 +44,30 @@ class ProizvodControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create proizvod" do
+    proizvod_params = {
+      naziv: "Testni",
+      opis: "Opis test",
+      kategorija: "1",
+      cena: "500",
+      sadrzaj: {
+        "#{@astromerija.id}": "5",
+        "#{@ruza.id}": "4",
+        "#{@lala.id}": "3"
+      }
+    }
+
     assert_difference('Proizvod.count') do
-      post proizvod_index_url, params: {
-        naziv: "Testni",
-        opis: "Opis test",
-        kategorija: "1",
-        cena: "500",
-        sadrzaj: {
-          "#{@astromerija.id}": "5",
-          "#{@ruza.id}": "4",
-          "#{@lala.id}": "3"
-        }
-      }, as: :json
+      post proizvod_index_url, 
+      params: proizvod_params, 
+      as: :json
     end
 
+    # Proizvod
     assert_response :created
     created_proizvod = Proizvod.last
-    assert_equal 3, created_proizvod.cvetovi_u_proizvodu.count
 
+    # CvetUProizvodu
+    assert_equal 3, created_proizvod.cvetovi_u_proizvodu.count
     created_proizvod.cvetovi_u_proizvodu.each do |cvet_u_proizvodu|
       assert_equal created_proizvod.id, cvet_u_proizvodu.proizvod_id
     end
