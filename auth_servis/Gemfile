@@ -1,0 +1,21 @@
+source "https://rubygems.org"
+
+# Ruby version
+ruby "3.2.2"
+
+gem "rails", "~> 7.1.2"
+gem "bcrypt", "~> 3.1.7"
+gem 'sqlite3', '~> 1.7.0'
+# gem 'mysql2'
+
+gem 'dry-validation'
+gem 'dry-schema'
+
+gem "puma", ">= 5.0"
+gem "tzinfo-data", platforms: %i[windows jruby]
+gem "bootsnap", require: false
+gem "rack-cors"
+
+group :development, :test do
+  gem "debug", platforms: %i[mri windows]
+end
