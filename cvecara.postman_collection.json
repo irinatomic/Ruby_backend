@@ -30,6 +30,12 @@
 				{
 					"name": "POST new",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.7GHFm9JNJ5ux50fhAThTM9Jjzz-DXLNneK7XyWh73Ng"
+							}
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -48,6 +54,12 @@
 				{
 					"name": "PUT change",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.7GHFm9JNJ5ux50fhAThTM9Jjzz-DXLNneK7XyWh73Ng"
+							}
+						},
 						"method": "PUT",
 						"header": [],
 						"body": {
@@ -66,6 +78,12 @@
 				{
 					"name": "DELETE newest",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.7GHFm9JNJ5ux50fhAThTM9Jjzz-DXLNneK7XyWh73Ng"
+							}
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": "http://localhost:3000/cvet/12"
@@ -99,6 +117,12 @@
 				{
 					"name": "POST new",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.7GHFm9JNJ5ux50fhAThTM9Jjzz-DXLNneK7XyWh73Ng"
+							}
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -117,6 +141,12 @@
 				{
 					"name": "PUT change",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.7GHFm9JNJ5ux50fhAThTM9Jjzz-DXLNneK7XyWh73Ng"
+							}
+						},
 						"method": "PUT",
 						"header": [],
 						"body": {
@@ -135,6 +165,12 @@
 				{
 					"name": "DELETE newest",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.7GHFm9JNJ5ux50fhAThTM9Jjzz-DXLNneK7XyWh73Ng"
+							}
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": "http://localhost:3000/kategorija/3"
@@ -168,6 +204,12 @@
 				{
 					"name": "POST new",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.7GHFm9JNJ5ux50fhAThTM9Jjzz-DXLNneK7XyWh73Ng"
+							}
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -186,6 +228,12 @@
 				{
 					"name": "PUT change",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.7GHFm9JNJ5ux50fhAThTM9Jjzz-DXLNneK7XyWh73Ng"
+							}
+						},
 						"method": "PUT",
 						"header": [],
 						"body": {
@@ -204,6 +252,12 @@
 				{
 					"name": "promeni-cenu",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.7GHFm9JNJ5ux50fhAThTM9Jjzz-DXLNneK7XyWh73Ng"
+							}
+						},
 						"method": "PUT",
 						"header": [],
 						"body": {
@@ -222,6 +276,12 @@
 				{
 					"name": "DELETE newest",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.7GHFm9JNJ5ux50fhAThTM9Jjzz-DXLNneK7XyWh73Ng"
+							}
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": "http://localhost:3000/proizvod/4"
@@ -237,6 +297,12 @@
 				{
 					"name": "GET all",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.7GHFm9JNJ5ux50fhAThTM9Jjzz-DXLNneK7XyWh73Ng"
+							}
+						},
 						"method": "GET",
 						"header": [],
 						"url": "http://localhost:3000/narudzbina"
@@ -246,6 +312,12 @@
 				{
 					"name": "GET by id",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.7GHFm9JNJ5ux50fhAThTM9Jjzz-DXLNneK7XyWh73Ng"
+							}
+						},
 						"method": "GET",
 						"header": [],
 						"url": "http://localhost:3000/narudzbina/1"
@@ -255,6 +327,12 @@
 				{
 					"name": "POST new",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0fQ.DmuC_7foBCktryYM5_w2uUTsKogre00n6Cdqymikkfo"
+							}
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -273,6 +351,12 @@
 				{
 					"name": "PUT change",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0fQ.DmuC_7foBCktryYM5_w2uUTsKogre00n6Cdqymikkfo"
+							}
+						},
 						"method": "PUT",
 						"header": [],
 						"body": {
@@ -289,8 +373,14 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "promeni-status",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.7GHFm9JNJ5ux50fhAThTM9Jjzz-DXLNneK7XyWh73Ng"
+							}
+						},
 						"method": "PUT",
 						"header": [],
 						"body": {
@@ -309,6 +399,12 @@
 				{
 					"name": "DELETE newest",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.7GHFm9JNJ5ux50fhAThTM9Jjzz-DXLNneK7XyWh73Ng"
+							}
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": "http://localhost:3000/narudzbina/4"
