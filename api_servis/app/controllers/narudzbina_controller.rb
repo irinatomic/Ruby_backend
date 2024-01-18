@@ -3,8 +3,8 @@
 require_relative 'validators/narudzbina_validator'
 
 class NarudzbinaController < ApplicationController
-    # before_action :auth_admin_token, only: [:index, :show, :destroy, :promeni_status]
-    # before_action :auth_user_token, only: [:create, :update]
+    before_action :auth_admin_token, only: [:index, :show, :destroy, :promeni_status]
+    before_action :auth_user_token, only: [:create, :update]
   
     # GET /narudzbines
     def index
@@ -175,6 +175,24 @@ class NarudzbinaController < ApplicationController
   
     private
 
+    # Authentication logic for admin token
+    def auth_admin_token
+      token = request.headers['Authorization']&.split(' ')&.last
+      unless TokenAuthService.new(token).authenticate_admin
+        render json: { error: 'Not Authorized' }, status: :unauthorized
+        false
+      end
+    end
+
+    # Authentication logic for user token
+    def auth_user_token
+      token = request.headers['Authorization']&.split(' ')&.last
+      unless TokenAuthService.new(token).authenticate_user
+        render json: { error: 'Not Authorized' }, status: :unauthorized
+        false
+      end
+    end
+
     # additional narudzbina info
     def narudzbina_with_associations(narudzbina)
       narudzbina.as_json(include: {
@@ -184,10 +202,5 @@ class NarudzbinaController < ApplicationController
         }
       })
     end    
-  
-    # Authentication logic for admin token
-    def auth_admin_token
-        true 
-      end
-  end
-  
+
+end  

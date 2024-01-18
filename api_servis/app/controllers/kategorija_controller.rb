@@ -1,7 +1,7 @@
 # app/controllers/kategorija_controller.rb
 
 class KategorijaController < ApplicationController
-  # before_action :auth_admin_token, only: [:create, :update, :destroy]
+  before_action :auth_admin_token, only: [:create, :update, :destroy]
 
   # GET /kategorijas
   def index
@@ -76,6 +76,15 @@ class KategorijaController < ApplicationController
 
   private
 
+  # Authentication logic for admin token
+  def auth_admin_token
+    token = request.headers['Authorization']&.split(' ')&.last
+    unless TokenAuthService.new(token).authenticate_admin
+      render json: { error: 'Not Authorized' }, status: :unauthorized
+      false
+    end
+  end
+
   def kategorija_params
     params.require(:kategorija).permit(:naziv)
   end
@@ -86,7 +95,6 @@ class KategorijaController < ApplicationController
     validator.validate(params[:kategorija])
   end
 
-  # Authentication logic for admin token
   def validate_kategorija_params
     required_params = params.require(:kategorija).permit(:naziv)
     return true if required_params.present?

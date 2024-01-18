@@ -1,7 +1,7 @@
 # app/controllers/cvet_controller.rb
 
 class CvetController < ApplicationController
-  # before_action :auth_admin_token, only: [:create, :update, :destroy]
+  before_action :auth_admin_token, only: [:create, :update, :destroy]
 
   # GET /cvets
   def index
@@ -90,7 +90,11 @@ class CvetController < ApplicationController
 
   # Authentication logic for admin token
   def auth_admin_token
-    true 
+    token = request.headers['Authorization']&.split(' ')&.last
+    unless TokenAuthService.new(token).authenticate_admin
+      render json: { error: 'Not Authorized' }, status: :unauthorized
+      false
+    end
   end
 
 end
