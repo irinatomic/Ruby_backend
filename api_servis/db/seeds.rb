@@ -1,23 +1,22 @@
-# require 'bcrypt'
-# password: BCrypt::Password.create('password')
+require 'bcrypt'
 
 # USERS
 seedDataKorisnici = [
   {
     username: 'admin',
-    password:'admin',
+    password_digest:BCrypt::Password.create('admin'),
     admin: true,
     email: 'admin@example.com',
   },
   {
     username: 'username_one',
-    password: 'password',
+    password_digest: BCrypt::Password.create('password'),
     admin: false,
     email: 'username_one@example.com',
   },
   {
     username: 'username_two',
-    password: 'password',
+    password_digest: BCrypt::Password.create('password'),
     admin: false,
     email: 'username_two@example.com',
   },
