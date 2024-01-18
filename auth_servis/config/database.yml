@@ -7,7 +7,7 @@ default: &default
 
 development:
   <<: *default
-  database: ../cvecara.sqlite
+  database: ../db/cvecara.sqlite
 
 test:
   <<: *default

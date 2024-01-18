@@ -53,7 +53,7 @@ If you wish to see the database, from api_servis run:
 sqlite3
 
 # Then, in the SQLite shell:
-.open cvecara.sqlite
+.open ../db/cvecara.sqlite
 .tables                         # lists tables
 .schema                         # db schema
 .exit                           # exit
