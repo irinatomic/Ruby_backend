@@ -5,6 +5,12 @@ require 'test_helper'
 class KategorijaControllerTest < ActionDispatch::IntegrationTest
   setup do
     @kategorija = Kategorija.create(naziv: 'Test Category 1')
+
+    @admin = Korisnik.find_by(id: 1)
+    @admin&.update(admin: true) || @admin = Korisnik.create!(id: 1, username: 'admin', password_digest: 'admin', admin: true, email: 'admin@email.com')
+    @headers_admin = { 
+      'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.7GHFm9JNJ5ux50fhAThTM9Jjzz-DXLNneK7XyWh73Ng'
+    }
   end
 
   test "should get index" do
@@ -26,7 +32,7 @@ class KategorijaControllerTest < ActionDispatch::IntegrationTest
 
   test "should create kategorija" do
     assert_difference('Kategorija.count') do
-      post kategorija_index_url, params: { kategorija: { naziv: 'New Category' } }
+      post kategorija_index_url, headers: @headers_admin, params: { kategorija: { naziv: 'New Category' } }
     end
 
     assert_response :created
@@ -36,7 +42,7 @@ class KategorijaControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update kategorija" do
-    patch kategorija_url(@kategorija), params: { kategorija: { naziv: 'Updated Category' } }
+    patch kategorija_url(@kategorija), headers: @headers_admin, params: { kategorija: { naziv: 'Updated Category' } }
     assert_response :success
 
     @kategorija.reload
@@ -45,7 +51,7 @@ class KategorijaControllerTest < ActionDispatch::IntegrationTest
 
   test "should destroy kategorija" do
     assert_difference('Kategorija.count', -1) do
-      delete kategorija_url(@kategorija)
+      delete kategorija_url(@kategorija), headers: @headers_admin
     end
 
     assert_response :success
@@ -63,7 +69,7 @@ class KategorijaControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should handle record not found in update" do
-    patch kategorija_url(id: 'nonexistent_id'), params: { kategorija: { naziv: 'Updated Category' } }
+    patch kategorija_url(id: 'nonexistent_id'), headers: @headers_admin, params: { kategorija: { naziv: 'Updated Category' } }
     assert_response :not_found
 
     json_response = JSON.parse(response.body)
@@ -71,7 +77,7 @@ class KategorijaControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should handle record not found in destroy" do
-    delete kategorija_url(id: 'nonexistent_id')
+    delete kategorija_url(id: 'nonexistent_id'), headers: @headers_admin
     assert_response :not_found
 
     json_response = JSON.parse(response.body)

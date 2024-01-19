@@ -26,10 +26,22 @@ class NarudzbinaControllerTest < ActionDispatch::IntegrationTest
       jedinicna_cena: @proizvod1.cena,
       kolicina: 2
     )
+
+    # auth admin
+    @admin = Korisnik.find_by(id: 1)
+    @admin&.update(admin: true) || @admin = Korisnik.create!(id: 1, username: 'admin', password_digest: 'admin', admin: true, email: 'admin@email.com')
+    @headers_admin = { 
+      'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.7GHFm9JNJ5ux50fhAThTM9Jjzz-DXLNneK7XyWh73Ng'
+    }
+  
+    @user = Korisnik.create!(id: 4, username: 'username_four', password_digest: BCrypt::Password.create('password'), admin: false, 'email': 'username_four@example.com')
+    @headers_user = { 
+      'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0fQ.DmuC_7foBCktryYM5_w2uUTsKogre00n6Cdqymikkfo'
+    }
   end
 
   test "should get index" do
-    get narudzbina_index_url
+    get narudzbina_index_url, headers: @headers_admin, as: :json
     assert_response :success
 
     json_response = JSON.parse(response.body)
@@ -38,7 +50,7 @@ class NarudzbinaControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should show narudzbina" do
-    get narudzbina_url(@narudzbina)
+    get narudzbina_url(@narudzbina), headers: @headers_admin, as: :json
     assert_response :success
 
     json_response = JSON.parse(response.body)    # object
@@ -73,6 +85,7 @@ class NarudzbinaControllerTest < ActionDispatch::IntegrationTest
 
     assert_difference('Narudzbina.count') do
       post narudzbina_index_url,
+      headers: @headers_user,
       params: narudzbina_params,
       as: :json
     end
@@ -100,7 +113,10 @@ class NarudzbinaControllerTest < ActionDispatch::IntegrationTest
       }
     }
 
-    put narudzbina_url(@narudzbina), params: narudzbina_params, as: :json
+    put narudzbina_url(@narudzbina), 
+    headers: @headers_user,
+    params: narudzbina_params, 
+    as: :json
 
     assert_response :success
     @narudzbina.reload
@@ -117,7 +133,7 @@ class NarudzbinaControllerTest < ActionDispatch::IntegrationTest
   test "should destroy narudzbina" do
     assert_difference('Narudzbina.count', -1) do
       assert_difference('StavkaNarudzbine.count', -1 * @narudzbina.stavke_narudzbine.count) do
-        delete narudzbina_url(@narudzbina)
+        delete narudzbina_url(@narudzbina), headers: @headers_admin, as: :json
       end
     end
   
@@ -129,9 +145,11 @@ class NarudzbinaControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should change status for narudzbina" do
-    put promeni_status_url(@narudzbina), params: {
-      "status_narudzbine": "Odbijeno" 
-    }, as: :json
+    put promeni_status_url(@narudzbina), 
+    headers: @headers_admin,
+    params: { "status_narudzbine": "Odbijeno" }, 
+    as: :json
+
     assert_response :success
     @narudzbina.reload
     assert_equal "Odbijeno", @narudzbina.status_narudzbine

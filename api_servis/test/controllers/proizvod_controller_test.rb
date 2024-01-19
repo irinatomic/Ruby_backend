@@ -1,6 +1,7 @@
 # test/controllers/proizvod_controller_test.rb
 
 require 'test_helper'
+require 'bcrypt'
 
 class ProizvodControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -20,6 +21,16 @@ class ProizvodControllerTest < ActionDispatch::IntegrationTest
       proizvod_id: @proizvod.id,
       kolicina: 10
     )
+
+    # auth
+    @admin = Korisnik.find_by(id: 1)
+    @admin&.update(admin: true) || @admin = Korisnik.create!(id: 1, username: 'admin', password_digest: 'admin', admin: true, email: 'admin@email.com')
+    @headers_admin = { 
+      'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.7GHFm9JNJ5ux50fhAThTM9Jjzz-DXLNneK7XyWh73Ng'
+    }
+  
+    @user = Korisnik.create!(id: 4, username: 'username_four', password_digest: BCrypt::Password.create('password'), admin: false, 'email': 'username_four@example.com')
+    @headers_user = { 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0fQ.DmuC_7foBCktryYM5_w2uUTsKogre00n6Cdqymikkfo'}
   end
 
   test "should get index" do
@@ -58,6 +69,7 @@ class ProizvodControllerTest < ActionDispatch::IntegrationTest
 
     assert_difference('Proizvod.count') do
       post proizvod_index_url, 
+      headers: @headers_admin,
       params: proizvod_params, 
       as: :json
     end
@@ -74,7 +86,7 @@ class ProizvodControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update proizvod" do
-    put proizvod_url(@proizvod), params: {
+    proizvod_params = {
       naziv: "Testni",
       opis: "Opis test - izmena",
       kategorija: "1",
@@ -82,7 +94,10 @@ class ProizvodControllerTest < ActionDispatch::IntegrationTest
       sadrzaj: {
         "#{@astromerija.id}": "3"
       }
-    }, as: :json
+    }
+
+    put proizvod_url(@proizvod), headers: @headers_admin, params: proizvod_params, as: :json
+
     assert_response :success
     @proizvod.reload
 
@@ -101,7 +116,7 @@ class ProizvodControllerTest < ActionDispatch::IntegrationTest
   test "should destroy proizvod" do
     assert_difference('Proizvod.count', -1) do
       assert_difference('CvetUProizvodu.count', -1 * @proizvod.cvetovi_u_proizvodu.count) do
-        delete proizvod_url(@proizvod)
+        delete proizvod_url(@proizvod), headers: @headers_admin, as: :json
       end
     end
   
@@ -113,9 +128,11 @@ class ProizvodControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should change cena for proizvod" do
-    put promeni_cenu_url(@proizvod), params: {
-      cena: "600"
-    }, as: :json
+    put promeni_cenu_url(@proizvod), 
+    headers: @headers_admin,
+    params: { cena: "600" }, 
+    as: :json
+    
     assert_response :success
     @proizvod.reload
     assert_equal 600, @proizvod.cena
