@@ -8,7 +8,7 @@ class CreateProizvodi < ActiveRecord::Migration[6.1]
       t.integer :cena, null: false
 
       # foreign keys
-      t.integer :kategorija_id, null: false
+      t.bigint :kategorija_id, null: false
 
     end
     # add the foreign key constraint

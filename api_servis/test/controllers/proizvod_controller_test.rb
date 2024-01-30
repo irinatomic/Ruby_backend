@@ -14,13 +14,10 @@ class ProizvodControllerTest < ActionDispatch::IntegrationTest
     @proizvod = Proizvod.create!(naziv: 'Midnight boquet',
       opis: 'Midnight buket stvara tramnu i misterioznu atmosferu - 10 astromerija',
       cena: 1200,
-      kategorija_id: 1
+      kategorija_id: @kategorija.id
     )
 
-    @cvetuproizvodu = CvetUProizvodu.create!(cvet_id: @astromerija.id,
-      proizvod_id: @proizvod.id,
-      kolicina: 10
-    )
+    @cvetuproizvodu = CvetUProizvodu.create!(cvet_id: @astromerija.id, proizvod_id: @proizvod.id, kolicina: 10)
 
     # auth
     @admin = Korisnik.find_by(id: 1)
@@ -38,6 +35,7 @@ class ProizvodControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     
     json_response = JSON.parse(response.body)
+
     assert_equal 1, json_response.length
     assert_equal @proizvod.naziv, json_response[0]['naziv']
     assert_equal @proizvod.opis, json_response[0]['opis']
@@ -55,10 +53,12 @@ class ProizvodControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create proizvod" do
+    puts @kategorija.id
+
     proizvod_params = {
       naziv: "Testni",
       opis: "Opis test",
-      kategorija: "1",
+      kategorija: @kategorija.id,
       cena: "500",
       sadrzaj: {
         "#{@astromerija.id}": "5",
@@ -67,7 +67,7 @@ class ProizvodControllerTest < ActionDispatch::IntegrationTest
       }
     }
 
-    assert_difference('Proizvod.count') do
+    assert_difference('Proizvod.count', 1) do
       post proizvod_index_url, 
       headers: @headers_admin,
       params: proizvod_params, 
@@ -89,14 +89,17 @@ class ProizvodControllerTest < ActionDispatch::IntegrationTest
     proizvod_params = {
       naziv: "Testni",
       opis: "Opis test - izmena",
-      kategorija: "1",
+      kategorija: @kategorija.id,
       cena: "500",
       sadrzaj: {
         "#{@astromerija.id}": "3"
       }
     }
 
-    put proizvod_url(@proizvod), headers: @headers_admin, params: proizvod_params, as: :json
+    put proizvod_url(@proizvod), 
+    headers: @headers_admin, 
+    params: proizvod_params, 
+    as: :json
 
     assert_response :success
     @proizvod.reload

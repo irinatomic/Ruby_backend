@@ -7,8 +7,8 @@ class CreateStavkeNarudzbine < ActiveRecord::Migration[6.1]
       t.integer :jedinicna_cena, null: false
 
       # foreign keys
-      t.integer :proizvod_id, null: false
-      t.integer :narudzbina_id, null: false
+      t.bigint :proizvod_id, null: false
+      t.bigint :narudzbina_id, null: false
 
     end
     # add the foreign key constraint

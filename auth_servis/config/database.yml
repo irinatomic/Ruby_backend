@@ -1,25 +1,18 @@
 default: &default
-  adapter: sqlite3
+  adapter: mysql2
   encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
+  # baza i myappuser su na 3307 portu
+  username: myappuser
+  password: myapppassword
   host: 127.0.0.1
+  port: 3307
 
 development:
   <<: *default
-  database: ../db/cvecara.sqlite
+  database: cvecara_rails
+  # database: ../db/cvecara.sqlite - before mysql
 
 test:
   <<: *default
-  database: cvecara_test.sqlite
-
-# problem with mac
-# default: &default
-#   adapter: mysql2
-#   encoding: utf8mb4
-#   username: root
-#   password: # null
-#   database: cveacara_rails
-#   host: localhost
-#   socket: /tmp/mysql.sock                                  # mysql socket path gotten with 'mysql_config --socket'
-#   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  database: cvecara_rails_test

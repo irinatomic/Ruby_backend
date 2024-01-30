@@ -8,46 +8,20 @@ bundle install
 sudo bundle install           # for macs
 ```
 
-To start the app, run `rails server`
+To start the app, run `rails server` from api_servis and auth_servis.
 
 ## Database
 
-### Problem with macbook m1
-Installing the mysql2 on macbook m1 (with brew):
+### Using mysql2
+If you are not using a macbook, there shouldn't be any problems. For macbook users, install mysql2 with following commands:
 ```
-brew install mysql openssl zstd
 sudo gem install mysql2 -- --with-opt-dir=/opt/homebrew/opt/openssl@3 --with-mysql-dir=/opt/homebrew/opt/mysql
-
-# check if it is installed
-gem list mysql2
+gem list mysql2     # check if it is installed
 ```
 
-Start the mysql server, for macs you can do it with:
-```
-brew services start mysql
+Start the mysql server, you can do it through XAMPP (manager-osx for macs). 
 
-# check if it is running
-brew services list
-```
-
-The problem is that the started mysql serves just unexpectedly shuts down or  it cannot be found on the port it says it is listening on. I do not know the solution to this so I am opting to use the sqlite in-app db instead.
-
-### Deployment 
-
-Run the following commands from the api_servis: <br>
-```
-rails db:create
-rails db:migrate
-rails db:seed
-```
-
-If you wish to reroll a migration:
-```
-rails db:rollback            # one migration
-rails db:rollback STEP=n     # n migrations
-rails db:drop                # drop all tables
-```
-
+### Using sqlite 
 If you wish to see the database, from api_servis run:
 ```
 sqlite3
@@ -59,9 +33,27 @@ sqlite3
 .exit                           # exit
 
 # Run SQL commands as usual:
-SELECT * FROM Categories;
-SELECT * FROM Users;
+SELECT * FROM Kategorija;
+SELECT * FROM Korisnik;
+```
+
+### Deployment 
+Run the following commands from the api_servis: <br>
+```
+rails db:create
+rails db:migrate
+rails db:seed
+```
+
+For the test database add `RAILS_ENV=test` to the end of every command.
+
+If you wish to reroll a migration:
+```
+rails db:rollback            # one migration
+rails db:rollback STEP=n     # n migrations
+rails db:drop                # drop all tables
 ```
 
 ## Testing
-To run the tests, run `rails test`
+To run the tests, run `rails test`.
+Reload the testing database with `ails db:test:prepare`.

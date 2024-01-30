@@ -6,8 +6,8 @@ class CreateCvetUProizvodima < ActiveRecord::Migration[6.1]
       t.integer :kolicina, null: false
 
       # foreign keys
-      t.integer :proizvod_id
-      t.integer :cvet_id
+      t.bigint :proizvod_id
+      t.bigint :cvet_id
       
     end
       # add the foreign key constraint

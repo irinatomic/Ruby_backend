@@ -11,7 +11,7 @@ class CreateNarudzbine < ActiveRecord::Migration[6.1]
       t.string :ime_prezime, null: false
 
       # foreign keys
-      t.integer :korisnik_id, null: false
+      t.bigint :korisnik_id, null: false
 
     end
     # add the foreign key constraint

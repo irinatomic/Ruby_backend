@@ -83,7 +83,7 @@ class NarudzbinaControllerTest < ActionDispatch::IntegrationTest
       }
     }
 
-    assert_difference('Narudzbina.count') do
+    assert_difference('Narudzbina.count', 1) do
       post narudzbina_index_url,
       headers: @headers_user,
       params: narudzbina_params,

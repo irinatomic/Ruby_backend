@@ -37,7 +37,7 @@ class ProizvodController < ApplicationController
     naziv: params[:naziv],
     opis: params[:opis],
     cena: params[:cena],
-    kategorija: params[:kategorija],
+    kategorija_id: params[:kategorija],
     sadrzaj: params[:sadrzaj]
     }
 
@@ -52,7 +52,7 @@ class ProizvodController < ApplicationController
         naziv: proizvod_data[:naziv],
         opis: proizvod_data[:opis],
         cena: proizvod_data[:cena],
-        kategorija_id: proizvod_data[:kategorija]
+        kategorija_id: proizvod_data[:kategorija_id]
       )
 
       # Add flowers to the product
@@ -75,7 +75,7 @@ class ProizvodController < ApplicationController
       naziv: params[:naziv],
       opis: params[:opis],
       cena: params[:cena],
-      kategorija: params[:kategorija],
+      kategorija_id: params[:kategorija],
       sadrzaj: params[:sadrzaj]
     }
 
@@ -92,7 +92,7 @@ class ProizvodController < ApplicationController
         naziv: proizvod_data[:naziv],
         opis: proizvod_data[:opis],
         cena: proizvod_data[:cena],
-        kategorija_id: proizvod_data[:kategorija]
+        kategorija_id: proizvod_data[:kategorija_id]
       )
 
       existing_entries = CvetUProizvodu.where(proizvod_id: proizvod_id)
