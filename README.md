@@ -19,7 +19,7 @@ sudo gem install mysql2 -- --with-opt-dir=/opt/homebrew/opt/openssl@3 --with-mys
 gem list mysql2     # check if it is installed
 ```
 
-Start the mysql server, you can do it through XAMPP (manager-osx for macs). 
+Start the mysql server, you can do it through [XAMPP](https://www.apachefriends.org/download.html) (manager-osx for macs). 
 
 ### Using sqlite 
 If you wish to see the database, from api_servis run:
@@ -56,4 +56,4 @@ rails db:drop                # drop all tables
 
 ## Testing
 To run the tests, run `rails test`.
-Reload the testing database with `ails db:test:prepare`.
+Reload the testing database with `rails db:test:prepare`.

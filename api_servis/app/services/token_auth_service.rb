@@ -14,13 +14,13 @@ class TokenAuthService
     end
 
     def authenticate_user
-        begin
-            payload = decode_token
-            user = Korisnik.find_by_id(payload[:user_id])
-            !user.admin
-          rescue JWT::DecodeError, ActiveRecord::RecordNotFound
-            false
-          end
+      begin
+        payload = decode_token
+        user = Korisnik.find_by_id(payload[:user_id])
+        !user.admin
+      rescue JWT::DecodeError, ActiveRecord::RecordNotFound
+        false
+      end
     end
   
     private
